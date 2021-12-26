@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="hinhchunhat" width="800px" height="500px" style="border: 1px solid black"></canvas>
+
+<script>
+    class Rectangle {
+        x;
+        y;
+        chieuDai;
+        chieuRong;
+
+
+        constructor(x, y, chieuDai, chieuRong) {
+            this._x = x;
+            this._y = y;
+            this._chieuDai = chieuDai;
+            this._chieuRong = chieuRong;
+            this._canvas = document.getElementById('hinhchunhat')
+            this._ctx = this._canvas.getContext('2d')
+        }
+
+        getChieuDai() {
+            return this.chieuDai;
+        }
+
+        setChieuDai(chieuDai) {
+            this.chieuRong = chieuDai
+        }
+
+        getChieuRong() {
+            return this.chieuRong;
+        }
+
+        setChieuRong(chieuRong) {
+            this.chieuRong = chieuRong;
+        }
+
+        getTinhDienTichHCN() {
+            return this._chieuRong * this._chieuDai;
+        }
+
+        getTinhChuViHCN(chieuDai, chieuRong) {
+            return (this._chieuDai + this._chieuRong) * 2
+        }
+
+        ve() {
+            this._ctx.beginPath();
+            this._ctx.fillStyle = "#ffc400"
+            this._ctx.rect(this._x, this._y, this._chieuDai, this._chieuRong)
+            this._ctx.fill()
+            this._ctx.closePath()
+        }
+    }
+
+    let rectangle = new Rectangle(200, 450, 300, 30)
+    rectangle.ve();
+
+    document.write('<br>')
+    document.write('Diện tích hình chữ nhật = '+rectangle.getTinhDienTichHCN())
+
+
+    document.write('<br>')
+    document.write('Chu vi hình chữ nhật = '+rectangle.getTinhChuViHCN())
+
+
+
+
+
+    // let ctx= document.getElementById('hinhchunhat').getContext('2d')
+    // ctx.beginPath()
+    // ctx.fillStyle('#fa4b2a')
+    // ctx.Rect(10, 40, 140, 160);
+    // ctx.stroke()
+
+
+</script>
+</body>
+</html>
